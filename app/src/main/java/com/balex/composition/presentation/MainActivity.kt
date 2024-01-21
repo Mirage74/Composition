@@ -1,11 +1,13 @@
-package com.balex.composition
+package com.balex.composition.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import com.balex.composition.R
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
     }
 }

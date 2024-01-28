@@ -1,5 +1,6 @@
 package com.balex.composition.presentation
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -97,8 +98,14 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun parseArgs() {
-        requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let {
-            gameResult = it
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requireArguments().getParcelable(KEY_GAME_RESULT, GameResult::class.java)?.let {
+                gameResult = it
+            }
+        } else {
+            requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let {
+                gameResult = it
+            }
         }
     }
 

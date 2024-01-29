@@ -16,7 +16,9 @@ fun bindRequiredAnswers(textView: TextView, count: Int) {
 }
 
 @BindingAdapter("score")
+//@BindingAdapter(value = ["score", "score2"])
 fun bindScore(textView: TextView, score: Int) {
+//    Log.d("AdapterBind", "s2: $s2")
     textView.text = String.format(
         textView.context.getString(R.string.score_answers),
         score
@@ -48,10 +50,8 @@ private fun getPercentOfRightAnswers(gameResult: GameResult) = with(gameResult) 
 }
 
 @BindingAdapter("resultEmoji")
-//fun bindResultEmoji(imageView: ImageView, winner: Boolean, gameResult: GameResult) {
 fun bindResultEmoji(imageView: ImageView, winner: Boolean) {
     imageView.setImageResource(getSmileResId(winner))
-    Log.d("AdapterBind", "result: $winner")
 }
 
 private fun getSmileResId(winner: Boolean): Int {
